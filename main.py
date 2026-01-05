@@ -8,15 +8,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI(title="Gauthum's Logistics-Contact-Pipeline")
+
 # allow CORS for testing purposes
-from fastapi.middleware.cors import CORSMiddleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Adjust this in production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# from fastapi.middleware.cors import CORSMiddleware
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],  # Adjust this in production
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
 # Configuration
 # Replace with your Discord/Telegram Webhook URL
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
