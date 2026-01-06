@@ -10,14 +10,14 @@ load_dotenv()
 
 app = FastAPI(title="Gauthum's Logistics-Contact-Pipeline")
 
-# allow CORS for testing purposes
 app.add_middleware(
     CORSMiddleware,
     # Allow both the production domain and local dev environment
     allow_origins=[
         "https://gauthumj.in",
         "https://www.gauthumj.in",
-        "http://localhost:3000" 
+        "https://v0-gauthumj.vercel.app/"
+        "http://localhost:3000",
     ],
     allow_credentials=True,
     allow_methods=["*"],
