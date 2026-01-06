@@ -16,7 +16,7 @@ app.add_middleware(
     allow_origins=[
         "https://gauthumj.in",
         "https://www.gauthumj.in",
-        "https://v0-gauthumj.vercel.app/"
+        "https://v0-gauthumj.vercel.app",
         "http://localhost:3000",
     ],
     allow_credentials=True,
