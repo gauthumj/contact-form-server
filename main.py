@@ -4,21 +4,25 @@ import httpx
 import uvicorn
 import os
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
 app = FastAPI(title="Gauthum's Logistics-Contact-Pipeline")
 
 # allow CORS for testing purposes
-# from fastapi.middleware.cors import CORSMiddleware
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],  # Adjust this in production
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
-
+app.add_middleware(
+    CORSMiddleware,
+    # Allow both the production domain and local dev environment
+    allow_origins=[
+        "https://gauthumj.in",
+        "https://www.gauthumj.in",
+        "http://localhost:3000" 
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Configuration
 # Replace with your Discord/Telegram Webhook URL
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
